@@ -10,7 +10,7 @@ spec:
     name     : in-cluster
     namespace: argocd
   source:
-    path   : "../lab-dev/applications"
+    path   : "lab-dev/applications"
     repoURL: "git@github.com:p-bogdan/argocd-charts.git"
     targetRevision: HEAD
   project: default
