@@ -2,12 +2,8 @@
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  labels:
-    linkerd.io/control-plane-component: "identity"
-    linkerd.io/control-plane-ns: "linkerd"
   annotations:
     sealedsecrets.bitnami.com/cluster-wide: "true"
-    linkerd.io/created-by: "linkerd/cli stable-2.14.10"
   creationTimestamp: null
   name: linkerd-trust-anchor
   namespace: linkerd
@@ -19,7 +15,11 @@ spec:
     metadata:
       annotations:
         sealedsecrets.bitnami.com/cluster-wide: "true"
+        linkerd.io/created-by: linkerd/cli stable-2.14.10
       creationTimestamp: null
+      labels:
+        linkerd.io/control-plane-component: identity
+        linkerd.io/control-plane-ns: linkerd
       name: linkerd-trust-anchor
       namespace: linkerd
     type: kubernetes.io/tls
