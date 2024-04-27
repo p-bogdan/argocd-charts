@@ -11,7 +11,7 @@ spec:
   destination:
     namespace: linkerd
     server: https://kubernetes.default.svc
-  project: demo
+  project: default
   source:
     path: helmcharts/linkerd-bootstrap
     repoURL: "git@github.com:p-bogdan/argocd-charts.git"
