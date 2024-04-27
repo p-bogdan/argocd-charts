@@ -3,12 +3,14 @@ kind: Application
 metadata:
   name: falco 
   namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     chart: falco
     repoURL: https://falcosecurity.github.io/charts 
-    targetRevision: 4.3.0
+    targetRevision: HEAD
     helm:
       releaseName: falcosecurity
   destination:
