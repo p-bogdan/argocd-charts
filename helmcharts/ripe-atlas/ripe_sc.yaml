@@ -2,6 +2,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: standard
+  namespace: ripe-atlas
 provisioner: kubernetes.io/example
 parameters:
   type: pd-standard
