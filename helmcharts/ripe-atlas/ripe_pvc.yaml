@@ -4,6 +4,7 @@ metadata:
   name: atlas-ripe-status
   namespace: ripe-atlas
 spec:
+  storageClassName: standard
   accessModes:
     - ReadWriteMany
   resources:
