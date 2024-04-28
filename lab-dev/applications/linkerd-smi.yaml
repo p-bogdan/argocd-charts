@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: linkerd-smi 
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: linkerd-smi
+    repoURL: https://linkerd.github.io/linkerd-smi
+    targetRevision: 1.0.4
+    helm:
+      releaseName: linkerd-smi
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: linkerd-smi
+  syncPolicy:
+    automated:
+      prune   : true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+    syncOptions:
+      - CreateNamespace=true
