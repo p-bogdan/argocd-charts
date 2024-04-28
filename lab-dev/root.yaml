@@ -13,8 +13,6 @@ spec:
     path   : "lab-dev/applications"
     repoURL: "git@github.com:p-bogdan/argocd-charts.git"
     targetRevision: HEAD
-    directory:
-      recurse: true
   project: default
   syncPolicy:
     automated:
