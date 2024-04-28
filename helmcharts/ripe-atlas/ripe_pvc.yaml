@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: atlas-ripe-status
+  namespace: ripe-atlas
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 512Mi

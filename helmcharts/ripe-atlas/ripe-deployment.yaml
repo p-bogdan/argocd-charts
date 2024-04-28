@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ripe-atlas
+  name: ripe-atlas
+  namespace: ripe-atlas
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: ripe-atlas
+  template:
+    metadata:
+      labels:
+        app: ripe-atlas
+    spec:
+      containers:
+        - image: jamesits/ripe-atlas:latest
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN", "SYS_TIME", "SYS_ADMIN"]
+          imagePullPolicy: Always
+          name: ripe-atlas
+          volumeMounts:
+            - name: ripe-atlas-key
+              mountPath: "/var/atlas-probe/etc/probe_key"
+              subPath: probe_key
+              readOnly: false
+            - name: ripe-atlas-key
+              mountPath: "/var/atlas-probe/etc/probe_key.pub"
+              readOnly: false
+              subPath: probe_key.pub
+            - name: atlas-ripe-status
+              mountPath: "/var/atlas-probe/status/"
+      restartPolicy: Always
+      volumes:
+        - name: atlas-ripe-status
+          persistentVolumeClaim:
+            claimName: atlas-ripe-status
+        - name: ripe-atlas-key
+          secret:
+            secretName: ripe-atlas
