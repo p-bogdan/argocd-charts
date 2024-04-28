@@ -21,7 +21,11 @@ spec:
         - image: jamesits/ripe-atlas:latest
           securityContext:
             capabilities:
-              add: ["NET_ADMIN", "SYS_TIME", "SYS_ADMIN"]
+              drop: ["ALL"]
+              add: ["CHOWN", "SETUID", "SETGID", "DAC_OVERRIDE", "NET_RAW"]
+          env:
+          - name: RXTXRPT 
+            value: "yes"
           imagePullPolicy: Always
           name: ripe-atlas
           volumeMounts:
@@ -34,7 +38,7 @@ spec:
               readOnly: false
               subPath: probe_key.pub
             - name: atlas-ripe-status
-              mountPath: "/var/atlas-probe/status/"
+              mountPath: "/var/atlas-probe/status"
       restartPolicy: Always
       volumes:
         - name: atlas-ripe-status
