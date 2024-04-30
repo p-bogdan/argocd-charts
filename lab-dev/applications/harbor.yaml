@@ -16,6 +16,9 @@ spec:
       values: |
         expose:
           type: nodePort
+          tls:
+            auto:
+              commonName: harbor
           #ingress:
           #  hosts:
           #    core: core.harbor.domain
