@@ -13,6 +13,13 @@ spec:
     targetRevision: 1.14.2
     helm:
       releaseName: harbor
+      values:
+        expose:
+          ingress:
+            hosts:
+              core: core.harbor.domain
+              notary: notary.harbor.domain
+        externalURL: https://core.harbor.domain
   destination:
     server: "https://kubernetes.default.svc"
     namespace: harbor
