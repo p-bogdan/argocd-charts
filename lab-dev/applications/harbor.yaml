@@ -15,11 +15,12 @@ spec:
       releaseName: harbor
       valuesObject:
         expose:
-          ingress:
-            hosts:
-              core: core.harbor.domain
-              notary: notary.harbor.domain
-        externalURL: https://core.harbor.domain
+          type: nodePort
+          #ingress:
+          #  hosts:
+          #    core: core.harbor.domain
+          #    notary: notary.harbor.domain
+        #externalURL: https://core.harbor.domain
   destination:
     server: "https://kubernetes.default.svc"
     namespace: harbor
