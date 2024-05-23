@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dependencyDashboard": true,
+  "reviewers": [
+    "@p-bogdan",
+  ],
+
+  "extends": [
+    "config:base",
+
+    // https://docs.renovatebot.com/presets-default/
+    ":timezone(Europe/Kyiv)",
+    ":prHourlyLimitNone",
+    ":prConcurrentLimitNone",
+
+    // https://github.com/aquaproj/aqua-renovate-config
+    "github>aquaproj/aqua-renovate-config#2.3.0",
+  ],
+  "argocd": {
+    "fileMatch": [
+      "lab-dev/applications/.*\\.yaml",
+    ],
+  },
+}
