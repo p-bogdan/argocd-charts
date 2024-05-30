@@ -1,10 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
+   "assignees": [
+    "@p-bogdan",
+  ],
   "reviewers": [
     "@p-bogdan",
   ],
 
+  "schedule": [
+    "after 10pm every weekday",
+    "before 5am every weekday",
+    "every weekend"
+  ]
   "extends": [
     "config:base",
 
@@ -15,6 +23,14 @@
 
     // https://github.com/aquaproj/aqua-renovate-config
     "github>aquaproj/aqua-renovate-config#2.3.0",
+  ],
+  // Automerge
+  platformAutomerge: true,
+  packageRules: [
+    {
+      matchUpdateTypes: ["minor", "patch", "pin", "digest"],
+      automerge: true,
+    },
   ],
   "argocd": {
     "fileMatch": [
