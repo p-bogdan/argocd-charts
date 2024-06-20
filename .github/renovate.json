@@ -21,7 +21,6 @@
     ":timezone(Europe/Kyiv)",
     ":prHourlyLimitNone",
     ":prConcurrentLimitNone",
-    ":dependencyDashboardApproval",
 
     // https://github.com/aquaproj/aqua-renovate-config
     "github>aquaproj/aqua-renovate-config#2.3.1",
