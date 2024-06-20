@@ -16,7 +16,7 @@
   "extends": [
     "config:base",
     "config:recommended",
-    ":dependencyDashboardApproval"
+    ":dependencyDashboardApproval",
 
     // https://docs.renovatebot.com/presets-default/
     ":timezone(Europe/Kyiv)",
