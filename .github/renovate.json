@@ -15,7 +15,6 @@
   ],
   "extends": [
     "config:base",
-    "config:recommended",
 
     // https://docs.renovatebot.com/presets-default/
     ":timezone(Europe/Kyiv)",
